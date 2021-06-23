@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { FormEvent } from 'react';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
@@ -6,9 +7,29 @@ import { Button } from '../components/Button';
 
 import '../styles/auth.scss';
 import { useAuth } from '../hooks/useAuth';
+import { useState } from 'react';
+import { database } from '../services/firebase';
 
 export function NewRoom() {
   const { user } = useAuth();
+
+  const [newRoom, setNewRoom] = useState('');
+
+  async function handleCreateRoom(e : FormEvent) {
+    e.preventDefault();
+
+    if (newRoom.trim() === '') {
+      return;
+    }
+
+    const roomRef = database.ref('rooms');
+
+    const firebaseRoom = await roomRef.push({
+      title: newRoom,
+      authorId: user?.id,      
+    })
+    
+  }
 
   return (
     <div id="page-auth">
@@ -21,10 +42,12 @@ export function NewRoom() {
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
           <h2>Criar uma nova sala</h2>
-          <form>
+          <form onSubmit={handleCreateRoom}>
             <input 
               type="text"
-              placeholder="Nome da sala"            
+              placeholder="Nome da sala"
+              onChange={e => setNewRoom(e.target.value)} 
+              value={newRoom}        
             />
             <Button type="submit">Entrar na sala</Button>
             
@@ -33,7 +56,7 @@ export function NewRoom() {
             Quer entrar em uma sala existente? <Link to="/">clique aqui</Link>
           </p>
         </div>
-      </main>
+      </main> 
     </div>
   )
 }
