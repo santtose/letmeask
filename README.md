@@ -1,18 +1,29 @@
-<h1>
+<h1 align="center">
   <img alt="letmeask" title="letmeask" src=".github/logo.svg" />
 </h1>
 
-[Ver em produção](https://letmeask-36c74.web.app/)
+- [Ver em produção](https://letmeask-36c74.web.app/)
 
-### É um sistema de criação de salas de Q&A ao vivo para a audiência tirar suas dúvidas em tempo real. Desenvolvido com React e Firebase.
+## 💻 Projeto
 
-## Principais ferramentas e/ou conceitos:
+Letmeask um app de criação de salas de Q&A ao vivo para a audiência tirar suas dúvidas em tempo real.
+
+Foi usado o Realtime database do Firebase com autorização e autenticação de usuário com Google.
+
+Deploy realizado no host da Firebase.
+
+## 🛠️ Tecnologias e ferramentas:
+
 - React
 - Typescript
-- Firebase Authentication
-- Firebase Authorization
-- Firebase Realtime Database
 - Hooks
 - Context API
 - Sass
-- Hospedagem no Host da Firebase
+
+## ❓ Como executar
+
+- Clone o repositório
+- Instale as dependências com `yarn install` ou `npm install` caso não tenha o yarn
+- Inicie o servidor com `yarn start` ou `npm start`
+
+Acesse o [`localhost:3000`](http://localhost:3000) do seu navegador.
