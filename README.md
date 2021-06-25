@@ -1,4 +1,6 @@
-# Letmeask
+<h1>
+  <img alt="letmeask" title="letmeask" src=".github/logo.svg" />
+</h1>
 
 [Ver em produção](https://letmeask-36c74.web.app/)
 
