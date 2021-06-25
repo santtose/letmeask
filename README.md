@@ -11,3 +11,4 @@
 - Hooks
 - Context API
 - Sass
+- Hospedagem no Host da Firebase
